@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+
+@font-face {
+    font-family: 'ProximaRegular';
+    src: url('/Fonts/Proxima-Nova-Condensed-Regular.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'ProximaExtraBold';
+    src: url('/Fonts/Proxima-Nova-Extra-Condensed-Black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'RoslindaleMedium';
+    src: url('/Fonts/RoslindaleDisplayCondensed-Medium.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'RoslindaleLight';
+    src: url('/Fonts/Roslindale-DisplayCondensedLight.woff2') format('woff2');
+}
+
+@theme {
+    --font-font1: "ProximaRegular", "sans-serif";
+    --font-font2: "ProximaExtraBold", "sans-serif";
+    --font-font3: "RoslindaleMedium", "sans-serif";
+    --font-font4: "RoslindaleLight.", "sans-serif";
+
+    --color-color-primary: #FF3B00;
+    --color-color-secondary: #F3EFE7;
+}
+
+body {
+    background-color: #F3EFE7;
+}
+
+::selection {
+    background-color: #FF3B00;
+    color: #F3EFE7;
+}
+
+.easing {
+    transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
