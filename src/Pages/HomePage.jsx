@@ -16,7 +16,8 @@ const HomePage = ({ isDesktop, setIsDesktop }) => {
                     setIsDesktop={setIsDesktop}
                 />
                 <ArtisanalSweets />
-                <Materials />
+                <Materials isDesktop={isDesktop}
+                    setIsDesktop={setIsDesktop} />
                 <WithoutCompromises
                     isDesktop={isDesktop}
                     setIsDesktop={setIsDesktop}

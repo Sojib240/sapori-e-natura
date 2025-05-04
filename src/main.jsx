@@ -6,11 +6,9 @@ import Context from "./Utils/Context.jsx";
 import { BrowserRouter } from "react-router-dom";
 
 createRoot(document.getElementById("root")).render(
-    <StrictMode>
-        <BrowserRouter>
-            <Context>
-                <App />
-            </Context>
-        </BrowserRouter>
-    </StrictMode>
+    <BrowserRouter>
+        <Context>
+            <App />
+        </Context>
+    </BrowserRouter>
 );

@@ -77,7 +77,7 @@ const Details = () => {
                                                 ingred
                                                     ? "translate-y-0 opacity-100 pointer-events-auto"
                                                     : "translate-y-[100%] opacity-0 pointer-events-none"
-                                            } max-w-[100%] sm:max-w-[400px] md:max-w-[500px] xl:max-w-[500px] w-full absolute bottom-0 left-0 p-3 sm:p-4 md:p-5 easing`}
+                                            } max-w-[100%] sm:max-w-[400px] md:max-w-[500px] xl:max-w-[500px] w-full absolute bottom-0 left-0 p-3 sm:p-4 md:p-5 easing2`}
                                         >
                                             <div className="p-3 sm:p-4 md:p-5 border bg-color-secondary rounded-[8px] relative">
                                                 <button
@@ -120,9 +120,9 @@ const Details = () => {
                                                 onClick={() =>
                                                     setIngred(!ingred)
                                                 }
-                                                className="border items-center gap-3 py-1 2xl:py-1.5 pl-2 pr-6 w-max rounded-[8px] text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl hover:text-color-secondary hover:bg-color-primary transition-colors easing cursor-pointer mb-4 md:mb-6 lg:mb-10 2xl:mb-12 flex mt-5 lg:mt-0"
+                                                className="border items-center gap-3 py-1 2xl:py-1.5 pl-2 pr-6 w-max rounded-[8px] text-sm md:text-base lg:text-base xl:text-lg 2xl:text-xl hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer mb-4 md:mb-6 lg:mb-10 2xl:mb-12 flex mt-5 lg:mt-0"
                                             >
-                                                <p className="w-5 2xl:w-6 h-5 2xl:h-6 flex justify-center items-center border-2 rounded-full font-font3 transition-colors easing text-sm 2xl:text-base">
+                                                <p className="w-5 2xl:w-6 h-5 2xl:h-6 flex justify-center items-center border-2 rounded-full font-font3 transition-colors easing2 text-sm 2xl:text-base">
                                                     i
                                                 </p>
                                                 <p>
@@ -148,17 +148,17 @@ const Details = () => {
                                             {stock == "in-stock" ? (
                                                 <div className="flex items-center gap-2 sm:gap-3 md:gap-5 lg:gap-3 2xl:gap-5 mt-5">
                                                     <div className="w-1/2 overflow-hidden border rounded-[8px] flex items-center justify-between">
-                                                        <button className="py-1 px-5 border-r text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing cursor-pointer">
+                                                        <button className="py-1 px-5 border-r text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer">
                                                             -
                                                         </button>
                                                         <p className="py-1 px-5 text-base sm:text-lg">
                                                             {amount}
                                                         </p>
-                                                        <button className="py-1 px-5 border-l text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing cursor-pointer">
+                                                        <button className="py-1 px-5 border-l text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer">
                                                             +
                                                         </button>
                                                     </div>
-                                                    <button className="border px-10 py-1 rounded-[8px] text-base sm:text-lg w-1/2 hover:text-color-secondary hover:bg-color-primary easing transition-colors cursor-pointer hover:border-color-primary">
+                                                    <button className="border px-10 py-1 rounded-[8px] text-base sm:text-lg w-1/2 hover:text-color-secondary hover:bg-color-primary easing2 transition-colors cursor-pointer hover:border-color-primary">
                                                         Buy Now
                                                     </button>
                                                 </div>
@@ -203,7 +203,9 @@ const Details = () => {
                             className="flex w-max"
                             drag="x"
                             dragConstraints={constraints}
-                            dragElastic={0.05}
+                            dragElastic={0.01}
+                            dragTransition={{ power: 0.1, timeConstant: 100 }}
+                            dragMomentum={false}
                             whileTap={{ cursor: "grabbing" }}
                         >
                             {similarCookies &&

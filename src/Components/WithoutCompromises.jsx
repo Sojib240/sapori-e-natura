@@ -31,7 +31,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
         isDesktop ? ["0px", `-${width}px`] : [0, 0]
     );
     return (
-        <section className="relative w-full text-color-primary border-color-primary flex flex-col justify-center">
+        <section className="relative w-full text-color-primary border-color-primary flex flex-col justify-center mt-10 sm:mt-20 md:mt-25 lg:mt-30 xl:mt-40 ">
             <div className="static md:sticky top-0 flex flex-col justify-between min-h-screen overflow-hidden">
                 <div className="mb-10 pt-5 px-3 sm:px-4 md:px-5">
                     <h4 className="font-font3 leading-[85%] text-[45px] sm:text-6xl md:text-[7vw] lg:text-[6.5vw] 2xl:text-[6.5vw] text-center">
@@ -45,7 +45,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
                         className="flex flex-col md:flex-row items-center md:items-end gap-3 sm:gap-4 md:gap-5 lg:gap-5 xl:gap-8 2xl:gap-10 w-full px-3 sm:px-4 md:px-5"
                     >
                         <div className="border-b md:border-b-0 border-t border-x shrink-0">
-                            <div className="w-auto aspect-video md:aspect-auto md:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
+                            <div className="w-auto aspect-video md:aspect-auto md:w-[450px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
                                 <div className="w-1/2 border-r h-full absolute top-0 left-0 z-0" />
                                 <div className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 2xl:p-5 w-full h-full overflow-hidden z-20 relative">
                                     <img
@@ -57,7 +57,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
                             </div>
                         </div>
                         <div className="border-b md:border-b-0 border-t border-x shrink-0">
-                            <div className="w-auto aspect-video md:aspect-auto md:w-[400px] lg:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
+                            <div className="w-auto aspect-video md:aspect-auto md:w-[450px] lg:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
                                 <div className="w-1/2 border-r h-full absolute top-0 left-0 z-0" />
                                 <div className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 2xl:p-5 w-full h-full overflow-hidden z-20 relative">
                                     <img
@@ -69,7 +69,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
                             </div>
                         </div>
                         <div className="border-b md:border-b-0 border-t border-x shrink-0">
-                            <div className="w-auto aspect-video md:aspect-auto md:w-[400px] lg:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
+                            <div className="w-auto aspect-video md:aspect-auto md:w-[450px] lg:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
                                 <div className="w-1/2 border-r h-full absolute top-0 left-0 z-0" />
                                 <div className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 2xl:p-5 w-full h-full overflow-hidden z-20 relative">
                                     <img
@@ -84,7 +84,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
                             <h4 className="font-font2 leading-[85%] text-4xl sm:text-5xl lg:text-6xl 2xl:text-7xl uppercase ">
                                 Supply chain
                             </h4>
-                            <p className="text-sm md:text-base">
+                            <p className="text-sm md:text-base lg:text-lg leading-[130%]">
                                 We follow the entire almond production chain,
                                 from harvest to processing. Attention to the
                                 quality of almonds guarantees the production of
@@ -92,7 +92,7 @@ const WithoutCompromises = ({ isDesktop, setIsDesktop }) => {
                             </p>
                         </div>
                         <div className="border-t border-x shrink-0">
-                            <div className="w-auto aspect-video md:aspect-auto md:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
+                            <div className="w-auto aspect-video md:aspect-auto md:w-[450px] lg:w-[400px] xl:w-[500px] 2xl:w-[32vw] h-auto md:h-[65vh] 2xl:h-auto relative">
                                 <div className="w-1/2 border-r h-full absolute top-0 left-0 z-0" />
                                 <div className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 2xl:p-5 w-full h-full overflow-hidden z-20 relative">
                                     <img

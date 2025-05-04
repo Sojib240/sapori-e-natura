@@ -128,7 +128,7 @@ const ArtisanalSweets = () => {
                                             delay: idx * 0.2, // Delay based on index for stagger effect
                                             ease: "easeOut", // Ease out for smooth deceleration
                                         }}
-                                        className="aspect-square w-full rounded-full bg-color-secondary border uppercase p-3 lg:p-5 text-[3.5vw] sm:text-xl md:text-sm leading-[130%] lg:text-lg 2xl:text-2xl font-font3 flex items-center justify-center text-center hover:bg-color-primary hover:text-color-secondary transition-colors easing"
+                                        className="aspect-square w-full rounded-full bg-color-secondary border uppercase p-3 lg:p-5 text-[3.5vw] sm:text-xl md:text-sm leading-[130%] lg:text-lg 2xl:text-2xl font-font3 flex items-center justify-center text-center"
                                     >
                                         {text}
                                     </motion.div>

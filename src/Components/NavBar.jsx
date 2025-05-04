@@ -1,29 +1,29 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
     const [menu, setMenu] = useState(false);
     return (
         <div className="flex justify-between items-start px-3.5 sm:px-5 py-3.5 sm:py-4 md:py-5 absolute top-0 w-full z-[99] text-color-primary border-color-primary">
             <div className="menu lg:flex items-center gap-1 xl:gap-2 max-w-[40%] xl:max-w-[30%] w-full lg:text-sm xl:text-base 2xl:text-lg font-semibold tracking-widest hidden">
-                <Link
+                <NavLink
                     to={"/shop/"}
-                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary"
+                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary hover:text-color-secondary hover:bg-color-primary easing2 transition-colors"
                 >
                     <p>Shop</p>
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                     to={"/about/"}
-                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary"
+                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary hover:text-color-secondary hover:bg-color-primary easing2 transition-colors"
                 >
                     <p>About Us</p>
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                     to={"/contact/"}
-                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary"
+                    className="px-5 xl:px-6 py-2 font-font1 rounded-full border border-color-primary text-color-primary hover:text-color-secondary hover:bg-color-primary easing2 transition-colors"
                 >
                     <p>Contact Us</p>
-                </Link>
+                </NavLink>
             </div>
             <div className="logo  text-center w-auto xl:w-full z-[99]">
                 <Link

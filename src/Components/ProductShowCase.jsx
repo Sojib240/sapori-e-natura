@@ -123,7 +123,7 @@ const ProductShowCase = ({ isDesktop, setIsDesktop }) => {
                     {cookies
                         .filter((cook) => [1, 3].includes(cook.id))
                         .map((cook, idx) => (
-                            <div className="">
+                            <div key={cook.id} className="">
                                 {idx === 0 && (
                                     <div className="mb-14 sm:mb-16 md:mb-15 lg:mb-18 xl:mb-20 2xl:mb-25 mt-6">
                                         <p className="font-font3 text-base sm:text-lg xl:text-2xl 2xl:text-[28px] mb-2 xl:mb-4">
@@ -148,7 +148,6 @@ const ProductShowCase = ({ isDesktop, setIsDesktop }) => {
                                     to={`/${cook.category}/${cook.slug}`}
                                     onMouseEnter={() => setHoveredId(cook.id)}
                                     onMouseLeave={() => setHoveredId(null)}
-                                    key={cook.id}
                                     className="border text-color-primary border-color-primary group block"
                                 >
                                     <p className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 border-b font-font3 leading-[110%] text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-[40px] 2xl:text-[52px]">
@@ -207,9 +206,9 @@ const ProductShowCase = ({ isDesktop, setIsDesktop }) => {
                         .map((cook) => (
                             <Link
                                 to={`/${cook.category}/${cook.slug}`}
+                                key={cook.id}
                                 onMouseEnter={() => setHoveredId(cook.id)}
                                 onMouseLeave={() => setHoveredId(null)}
-                                key={cook.id}
                                 className="border text-color-primary border-color-primary group"
                             >
                                 <p className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 border-b font-font3 text-3xl sm:text-4xl md:text-3xl lg:text-4xl xl:text-[40px] 2xl:text-[52px] leading-[110%]">

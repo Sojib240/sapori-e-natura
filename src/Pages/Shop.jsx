@@ -1,19 +1,14 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { cookiesContext } from "../Utils/Context";
 import Marquee from "react-fast-marquee";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import AnimatePage from "../Components/AnimatePage";
 
 const Shop = ({ isDesktop, setIsDesktop }) => {
     const [cookies] = useContext(cookiesContext);
     const [hoveredId, setHoveredId] = useState(null);
-    const shopRef = useRef();
 
-    const { scrollYProgress } = useScroll({
-        target: shopRef,
-        offset: ["start 70%", "end center"],
-    });
     useEffect(() => {
         const handleResize = () => {
             setIsDesktop(window.innerWidth >= 768);
@@ -24,6 +19,12 @@ const Shop = ({ isDesktop, setIsDesktop }) => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // animation on scroll
+    const shopRef = useRef();
+    const { scrollYProgress } = useScroll({
+        target: shopRef,
+        offset: ["start 70%", "end center"],
+    });
     // Different speeds
     const springConfig = { stiffness: 180, damping: 25 };
     const y1 = useSpring(
@@ -50,6 +51,15 @@ const Shop = ({ isDesktop, setIsDesktop }) => {
         ),
         springConfig
     );
+    // unique categorys
+    const [category, setCategory] = useState();
+    useEffect(() => {
+        const uniqueCategories = [
+            ...new Set(cookies.map((cookie) => cookie.category)),
+        ];
+
+        setCategory(uniqueCategories);
+    }, [cookies]);
 
     return (
         <AnimatePage>
@@ -61,15 +71,23 @@ const Shop = ({ isDesktop, setIsDesktop }) => {
                 </div>
 
                 <div className="flex flex-wrap md:flex-nowrap items-center gap-3 sm:gap-5 lg:gap-8 xl:gap-9 2xl:gap-10 w-full justify-center mt-12 sm:mt-15 lg:mt-20 mb-20 sm:mb-25 md:mb-28 lg:mb-32 xl:mb-40 font-font1 text-sm md:text-base lg:text-lg px-3 sm:px-4 md:px-5">
-                    <button className="border rounded-full px-6 sm:px-8 md:px-10 py-2 font-semibold duration-300 ease-in-out transition-colors hover:text-color-secondary hover:bg-color-primary cursor-pointer">
-                        Macaroons
-                    </button>
-                    <button className="border rounded-full px-6 sm:px-8 md:px-10 py-2 font-semibold duration-300 ease-in-out transition-colors hover:text-color-secondary hover:bg-color-primary cursor-pointer">
-                        Almonds
-                    </button>
-                    <button className="border rounded-full px-6 sm:px-8 md:px-10 py-2 font-semibold duration-300 ease-in-out transition-colors hover:text-color-secondary hover:bg-color-primary cursor-pointer">
+                    {category &&
+                        category.map((title, idx) => (
+                            <Link
+                                key={idx}
+                                to={`/product-category/${title}`}
+                                className="border rounded-full px-6 sm:px-8 md:px-10 py-2 font-semibold easing2 transition-colors hover:text-color-secondary hover:bg-color-primary cursor-pointer"
+                            >
+                                {title}
+                            </Link>
+                        ))}
+
+                    <NavLink
+                        to={"/shop/"}
+                        className="border rounded-full px-6 sm:px-8 md:px-10 py-2 font-semibold easing2 transition-colors hover:text-color-secondary hover:bg-color-primary cursor-pointer"
+                    >
                         View all products
-                    </button>
+                    </NavLink>
                 </div>
 
                 <section

@@ -57,9 +57,10 @@ const AnimatePage = ({ children }) => {
                     animate="enter"
                     exit="exit"
                 >
-                    ✧ Artisanal Sweetness ✧
+                    Artisanal Sweetness
                 </motion.div>
             </motion.div>
+            {/* <motion.div className="w-full h-screen fixed top-0 left-0 z-[9993]"/> */}
             <div>{children}</div>
         </div>
     );

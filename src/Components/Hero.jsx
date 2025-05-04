@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 const Hero = () => {
+    const location = useLocation();
     return (
         <section className="bg-cover bg-center w-full h-screen px-5 flex items-center justify-center">
             <img
@@ -14,7 +17,10 @@ const Hero = () => {
                 alt=""
             />
             <div className="w-[98%] sm:w-[80%] lg:w-[50%] relative">
-                <img
+                <motion.img
+                    initial={{ scale: 0,opacity:0 }}
+                    animate={{ scale: 1,opacity:1 }}
+                    transition={{ duration: 0.5, ease: "circInOut", delay: 1.35 }}
                     className="w-full"
                     src="/Images/Icons/circle-svg.svg"
                     alt=""

@@ -15,6 +15,7 @@ import Shop from "./Pages/Shop";
 import Details from "./Pages/Details";
 import { AnimatePresence } from "framer-motion";
 import CartPage from "./Pages/CartPage";
+import ProductCategory from "./Pages/ProductCategory";
 
 const App = () => {
     const [isDesktop, setIsDesktop] = useState(true);
@@ -60,9 +61,10 @@ const App = () => {
                         path="/sales-condition/"
                         element={<SalesCondition />}
                     />
+                    <Route path="/cart/" element={<CartPage />} />
                     <Route
-                        path="/cart/"
-                        element={<CartPage />}
+                        path="/product-category/:title"
+                        element={<ProductCategory isDesktop={isDesktop} setIsDesktop={setIsDesktop} />}
                     />
                 </Routes>
             </AnimatePresence>
