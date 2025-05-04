@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { CartData } from "../Utils/CartContext";
 
 const NavBar = () => {
+    const [cart] = useContext(CartData);
     const [menu, setMenu] = useState(false);
     return (
         <div className="flex justify-between items-start px-3.5 sm:px-5 py-3.5 sm:py-4 md:py-5 absolute top-0 w-full z-[99] text-color-primary border-color-primary">
@@ -40,13 +42,22 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="cart max-w-[40%] xl:max-w-[30%] w-full flex items-center gap-3 sm:gap-4 justify-end z-[99]">
-                <Link to={'/cart/'} className="border rounded-full h-8 w-8 lg:h-9 lg:w-9 2xl:w-10 2xl:h-10 p-1.5 lg:p-2">
+                <Link
+                    to={"/cart/"}
+                    className="border rounded-full h-8 w-8 lg:h-9 lg:w-9 2xl:w-10 2xl:h-10 p-1.5 lg:p-2 hover:scale-95 easing"
+                >
                     <img
                         className="w-full"
                         src="/Images/Icons/shopping-cart.png"
                         alt=""
                     />
                 </Link>
+                {cart.length !== 0 ? (
+                    <span className="p-1 bg-color-primary rounded-[5px] text-color-secondary  w-4.5 h-4.5 lg:w-5 lg:h-5 flex justify-center items-center text-xs lg:text-sm -ml-[30px] -mt-[30px]">
+                        {cart.length}
+                    </span>
+                ) : null}
+
                 <button
                     onClick={() => setMenu(!menu)}
                     className="cursor-pointer block lg:hidden h-2.5 w-6 md:w-7 relative"
@@ -64,9 +75,15 @@ const NavBar = () => {
                 } easing flex items-end`}
             >
                 <div className="font-font3 text-5xl md:text-5xl flex flex-col gap-4 w-full">
-                    <Link onClick={()=>setMenu(false)} to={'/shop/'}>Shop</Link>
-                    <Link onClick={()=>setMenu(false)} to={'/about/'}>About Us</Link>
-                    <Link onClick={()=>setMenu(false)} to={'/contact/'}>Contact Us</Link>
+                    <Link onClick={() => setMenu(false)} to={"/shop/"}>
+                        Shop
+                    </Link>
+                    <Link onClick={() => setMenu(false)} to={"/about/"}>
+                        About Us
+                    </Link>
+                    <Link onClick={() => setMenu(false)} to={"/contact/"}>
+                        Contact Us
+                    </Link>
                     <button className="bg-transparent hover:bg-color-primary hover:text-color-secondary border transition-colors duration-300 ease-in-out py-2 rounded-lg text-color-primary cursor-pointer text-base w-full mt-6 font-font1">
                         Sign in
                     </button>

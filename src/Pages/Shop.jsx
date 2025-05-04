@@ -180,7 +180,7 @@ const Shop = ({ isDesktop, setIsDesktop }) => {
                                         onMouseLeave={() => setHoveredId(null)}
                                         className="border group block"
                                     >
-                                        <p className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 border-b font-font3 text-3xl sm:text-5xl md:text-3xl lg:text-4xl xl:text-[40px] 2xl:text-[52px] leading-[110%]">
+                                        <p className="p-3 sm:p-3 md:p-2 lg:p-3 xl:p-4 border-b font-font3 text-3xl sm:text-5xl md:text-3xl lg:text-4xl xl:text-[40px] 2xl:text-[52px] leading-[110%]">1
                                             {cook.title}
                                         </p>
                                         <Marquee

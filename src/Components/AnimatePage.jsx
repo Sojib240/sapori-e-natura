@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect } from "react";
 
 const AnimatePage = ({ children }) => {
+    // Scroll to top on mount
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const scaleY = {
         enter: {
             scaleY: 0,
@@ -21,9 +25,8 @@ const AnimatePage = ({ children }) => {
             },
         },
     };
-    
-    const opacity = {
 
+    const opacity = {
         enter: {
             opacity: 0,
             transition: {
@@ -41,7 +44,7 @@ const AnimatePage = ({ children }) => {
             },
         },
     };
-    
+
     return (
         <div className="">
             <motion.div
@@ -60,7 +63,6 @@ const AnimatePage = ({ children }) => {
                     Artisanal Sweetness
                 </motion.div>
             </motion.div>
-            {/* <motion.div className="w-full h-screen fixed top-0 left-0 z-[9993]"/> */}
             <div>{children}</div>
         </div>
     );

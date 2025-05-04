@@ -64,7 +64,12 @@ const App = () => {
                     <Route path="/cart/" element={<CartPage />} />
                     <Route
                         path="/product-category/:title"
-                        element={<ProductCategory isDesktop={isDesktop} setIsDesktop={setIsDesktop} />}
+                        element={
+                            <ProductCategory
+                                isDesktop={isDesktop}
+                                setIsDesktop={setIsDesktop}
+                            />
+                        }
                     />
                 </Routes>
             </AnimatePresence>

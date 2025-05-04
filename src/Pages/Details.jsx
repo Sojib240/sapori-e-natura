@@ -2,11 +2,12 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { cookiesContext } from "../Utils/Context";
-import { p } from "framer-motion/client";
+import { CartData } from "../Utils/CartContext";
 import AnimatePage from "../Components/AnimatePage";
 
 const Details = () => {
     const [cookies] = useContext(cookiesContext);
+    const [cart, setCart] = useContext(CartData);
     const [ingred, setIngred] = useState(false);
     const [singleCookies, setSingleCookies] = useState();
     const [similarCookies, setSimilarCookies] = useState();
@@ -39,6 +40,22 @@ const Details = () => {
             cookies.filter((cate) => cate.slug !== FindSelectedCookie.slug);
         setSimilarCookies(selectedCookieFilter);
     }, [cookies, slug]);
+    // cart
+    const [addedToCart, setAddedToCart] = useState(false);
+    const handleCart = (product) => {
+        let isPresent = false;
+        cart.map((p) => {
+            if (p.id === product.id) {
+                isPresent = true;
+            }
+        });
+        if (isPresent) {
+            return;
+        }
+        setCart([...cart, product]);
+    };
+    // handle amount
+    const [newAmount, setNewAmount] = useState(1);
 
     return (
         <AnimatePage>
@@ -64,6 +81,24 @@ const Details = () => {
                                     key={id}
                                     className="flex flex-col lg:flex-row h-auto lg:h-[90vh]"
                                 >
+                                    <div
+                                        className={`fixed top-[10%] p-5 bg-color-primary rounded-xl text-color-secondary ${
+                                            addedToCart == false
+                                                ? "-right-[100%]"
+                                                : "right-[1%]"
+                                        } easing`}
+                                    >
+                                        <Link
+                                            to={"/cart/"}
+                                            className="underline text-lg font-bold tracking-[1px]"
+                                        >
+                                            view in cart
+                                        </Link>
+                                        <p className="text-base">
+                                            "{title}" has been added to yout
+                                            cart
+                                        </p>
+                                    </div>
                                     <div className="w-full lg:w-[60%] xl:w-[67%] h-full relative overflow-hidden">
                                         <div className="w-full h-[60vh] lg:h-full">
                                             <img
@@ -77,7 +112,7 @@ const Details = () => {
                                                 ingred
                                                     ? "translate-y-0 opacity-100 pointer-events-auto"
                                                     : "translate-y-[100%] opacity-0 pointer-events-none"
-                                            } max-w-[100%] sm:max-w-[400px] md:max-w-[500px] xl:max-w-[500px] w-full absolute bottom-0 left-0 p-3 sm:p-4 md:p-5 easing2`}
+                                            } max-w-[100%] sm:max-w-[400px] md:max-w-[500px] xl:max-w-[500px] w-full absolute bottom-0 left-0 p-3 sm:p-4 md:p-5 easing`}
                                         >
                                             <div className="p-3 sm:p-4 md:p-5 border bg-color-secondary rounded-[8px] relative">
                                                 <button
@@ -148,17 +183,64 @@ const Details = () => {
                                             {stock == "in-stock" ? (
                                                 <div className="flex items-center gap-2 sm:gap-3 md:gap-5 lg:gap-3 2xl:gap-5 mt-5">
                                                     <div className="w-1/2 overflow-hidden border rounded-[8px] flex items-center justify-between">
-                                                        <button className="py-1 px-5 border-r text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer">
+                                                        <button
+                                                            onClick={() => {
+                                                                if (newAmount > 1) {
+                                                                    setNewAmount(newAmount - 1);
+                                                                }
+                                                            }}
+                                                            className="py-1 px-5 border-r text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer"
+                                                        >
                                                             -
                                                         </button>
                                                         <p className="py-1 px-5 text-base sm:text-lg">
-                                                            {amount}
+                                                            {newAmount}
                                                         </p>
-                                                        <button className="py-1 px-5 border-l text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer">
+                                                        <button
+                                                            onClick={() => {
+                                                                if (
+                                                                    newAmount <
+                                                                    4
+                                                                ) {
+                                                                    setNewAmount(
+                                                                        newAmount +
+                                                                            1
+                                                                    );
+                                                                }
+                                                            }}
+                                                            className="py-1 px-5 border-l text-base sm:text-lg hover:text-color-secondary hover:bg-color-primary transition-colors easing2 cursor-pointer"
+                                                        >
                                                             +
                                                         </button>
                                                     </div>
-                                                    <button className="border px-10 py-1 rounded-[8px] text-base sm:text-lg w-1/2 hover:text-color-secondary hover:bg-color-primary easing2 transition-colors cursor-pointer hover:border-color-primary">
+                                                    <button
+                                                        onClick={() => {
+                                                            handleCart({
+                                                                id,
+                                                                title,
+                                                                slug,
+                                                                image,
+                                                                price,
+                                                                amount:newAmount,
+                                                                allergens,
+                                                                madeWith,
+                                                                Ingredients,
+                                                                NutritionalValues,
+                                                                category,
+                                                                stock,
+                                                            }),
+                                                                setAddedToCart(
+                                                                    true
+                                                                );
+                                                            // Reset to false after 2 seconds
+                                                            setTimeout(() => {
+                                                                setAddedToCart(
+                                                                    false
+                                                                );
+                                                            }, 2500);
+                                                        }}
+                                                        className="border px-10 py-1 rounded-[8px] text-base sm:text-lg w-1/2 hover:text-color-secondary hover:bg-color-primary easing2 transition-colors cursor-pointer hover:border-color-primary"
+                                                    >
                                                         Buy Now
                                                     </button>
                                                 </div>
