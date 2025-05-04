@@ -84,9 +84,9 @@ const NavBar = () => {
                     <Link onClick={() => setMenu(false)} to={"/contact/"}>
                         Contact Us
                     </Link>
-                    <button className="bg-transparent hover:bg-color-primary hover:text-color-secondary border transition-colors duration-300 ease-in-out py-2 rounded-lg text-color-primary cursor-pointer text-base w-full mt-6 font-font1">
-                        Sign in
-                    </button>
+                    <Link onClick={() => setMenu(false)} to={'/my-account/'} className="bg-transparent hover:bg-color-primary hover:text-color-secondary border transition-colors duration-300 ease-in-out py-2 rounded-lg text-color-primary cursor-pointer text-base w-full mt-6 font-font1 text-center">
+                        <p>Sign in</p>
+                    </Link>
                 </div>
             </div>
         </div>
