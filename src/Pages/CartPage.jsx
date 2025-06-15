@@ -84,7 +84,7 @@ const CartPage = () => {
                                                                 handleRemove(id)
                                                             }
                                                             to={""}
-                                                            className="block cursor-pointer w-1/2 md:w-auto p-3 md:p-0"
+                                                            className="block cursor-pointer w-2/5 md:w-auto p-3 md:p-0"
                                                         >
                                                             <img
                                                                 className="w-3.5"
@@ -92,7 +92,7 @@ const CartPage = () => {
                                                                 alt=""
                                                             />
                                                         </button>
-                                                        <div className="w-1/2 h-25 sm:h-30 md:h-auto md:w-23 p-3 md:p-0 border-l md:border-l-0">
+                                                        <div className="w-3/5 h-25 sm:h-30 md:h-auto md:w-23 p-3 md:p-0 border-l md:border-l-0">
                                                             <Link
                                                                 to={`/${category}/${slug}`}
                                                                 className="w-23 rounded-[10px] aspect-square overflow-hidden"

@@ -82,7 +82,7 @@ const Details = () => {
                                     className="flex flex-col lg:flex-row h-auto lg:h-[90vh]"
                                 >
                                     <div
-                                        className={`fixed top-[10%] p-5 bg-color-primary rounded-xl text-color-secondary ${
+                                        className={`fixed top-[10%] p-5 bg-color-primary rounded-xl text-color-secondary z-50 ${
                                             addedToCart == false
                                                 ? "-right-[100%]"
                                                 : "right-[1%]"

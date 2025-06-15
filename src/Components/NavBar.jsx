@@ -62,8 +62,14 @@ const NavBar = () => {
                     onClick={() => setMenu(!menu)}
                     className="cursor-pointer block lg:hidden h-2.5 w-6 md:w-7 relative"
                 >
-                    <span className="w-6 md:w-7 absolute top-0 bg-color-primary h-[2px] block" />
-                    <span className="w-6 md:w-7 absolute bottom-0 bg-color-primary h-[2px] block" />
+                    <span
+                        className={`w-6 md:w-7 absolute top-0 bg-color-primary h-[2px] block easing ${
+                            menu ? "rotate-45 top-1/2" : "rotate-0"
+                        }`}
+                    />
+                    <span className={`w-6 md:w-7 absolute bg-color-primary h-[2px] block -rotate-45 easing ${
+                            menu ? "-rotate-40 top-1/2" : "rotate-0"
+                        }`} />
                     <span />
                 </button>
             </div>
@@ -84,7 +90,11 @@ const NavBar = () => {
                     <Link onClick={() => setMenu(false)} to={"/contact/"}>
                         Contact Us
                     </Link>
-                    <Link onClick={() => setMenu(false)} to={'/my-account/'} className="bg-transparent hover:bg-color-primary hover:text-color-secondary border transition-colors duration-300 ease-in-out py-2 rounded-lg text-color-primary cursor-pointer text-base w-full mt-6 font-font1 text-center">
+                    <Link
+                        onClick={() => setMenu(false)}
+                        to={"/my-account/"}
+                        className="bg-transparent hover:bg-color-primary hover:text-color-secondary border transition-colors duration-300 ease-in-out py-2 rounded-lg text-color-primary cursor-pointer text-base w-full mt-6 font-font1 text-center"
+                    >
                         <p>Sign in</p>
                     </Link>
                 </div>
